@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Coding\\School\\week3-opdracht\\week3-opdracht.csproj": {}
+    "D:\\Coding\\Projects\\week3-opdracht\\week3-opdracht.csproj": {}
   },
   "projects": {
-    "C:\\Coding\\School\\week3-opdracht\\week3-opdracht.csproj": {
+    "D:\\Coding\\Projects\\week3-opdracht\\week3-opdracht.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Coding\\School\\week3-opdracht\\week3-opdracht.csproj",
+        "projectUniqueName": "D:\\Coding\\Projects\\week3-opdracht\\week3-opdracht.csproj",
         "projectName": "week3-opdracht",
-        "projectPath": "C:\\Coding\\School\\week3-opdracht\\week3-opdracht.csproj",
-        "packagesPath": "C:\\Users\\Joseph95\\.nuget\\packages\\",
-        "outputPath": "C:\\Coding\\School\\week3-opdracht\\obj\\",
+        "projectPath": "D:\\Coding\\Projects\\week3-opdracht\\week3-opdracht.csproj",
+        "packagesPath": "C:\\Users\\Eric\\.nuget\\packages\\",
+        "outputPath": "D:\\Coding\\Projects\\week3-opdracht\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Joseph95\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\Eric\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
@@ -43,8 +43,7 @@
             "net47",
             "net471",
             "net472",
-            "net48",
-            "net481"
+            "net48"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -53,7 +52,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.302\\RuntimeIdentifierGraph.json"
         }
       }
     }

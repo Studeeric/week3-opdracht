@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -31,7 +32,7 @@ namespace AsyncBoekOpdracht
     static class Database
     {
         private static List<Boek> lijst = new List<Boek>();
-        public static async void VoegToe(Boek b)
+        public static async Task VoegToe(Boek b)
         {
             await Willekeurig.Vertraging(); // INSERT INTO ...
             lijst.Add(b);
@@ -41,7 +42,7 @@ namespace AsyncBoekOpdracht
             await Willekeurig.Vertraging(); // SELECT * FROM ...
             return lijst;
         }
-        public static async void Logboek(string melding)
+        public static async Task Logboek(string melding)
         {
             await Willekeurig.Vertraging(); // schrijf naar logbestand
         }
@@ -53,13 +54,10 @@ namespace AsyncBoekOpdracht
             var titel = Console.ReadLine();
             Console.WriteLine("Geef de auteur op: ");
             var auteur = Console.ReadLine();
-            var wacht = Task(Database.VoegToe(new Boek {Titel = titel, Auteur = auteur}));
-            await wacht;
+            await Database.VoegToe(new Boek {Titel = titel, Auteur = auteur});
             Database.Logboek("Er is een nieuw boek!");
-            var lijst = Database.HaalLijstOp();
-            await lijst;
             Console.WriteLine("De huidige lijst met boeken is: ");
-            foreach (var boek in lijst) {
+            foreach (var boek in await Database.HaalLijstOp()) {
                 Console.WriteLine(boek.Titel);
             }
         }
@@ -67,7 +65,7 @@ namespace AsyncBoekOpdracht
             Console.WriteLine("Waar gaat het boek over?");
             var beschrijving = Console.ReadLine();
             Boek beste = null;
-            foreach (var boek in Database.HaalLijstOp())
+            foreach (var boek in await Database.HaalLijstOp())
                 if (beste == null || boek.AIScore > beste.AIScore)
                     beste = boek;
             Console.WriteLine("Het boek dat het beste overeenkomt met de beschrijving is: ");
@@ -76,7 +74,7 @@ namespace AsyncBoekOpdracht
         static bool Backupping = false;
         // "Backup" kan lang duren. We willen dat de gebruiker niet hoeft te wachten,
         // en direct daarna boeken kan toevoegen en zoeken.
-        static void Backup() {
+        static async Task Backup() {
             if (Backupping)
                 return;
             Backupping = true;
@@ -94,12 +92,13 @@ namespace AsyncBoekOpdracht
                 Console.WriteLine("q) Quit");
                 key = Console.ReadLine();
                 if (key == "+")
-                    VoegBoekToe();
+                    await VoegBoekToe();
                 else if (key == "z")
-                    ZoekBoek();
+                    await ZoekBoek();
                 else if (key == "b")
                     Backup();
-                else Console.WriteLine("Ongeldige invoer!");
+                else if (key != "q")
+                    Console.WriteLine("Ongeldige invoer!");
             }
         }
     }

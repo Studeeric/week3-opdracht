@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "week3-opdracht/1.0.0": {
+        "runtime": {
+          "week3-opdracht.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "week3-opdracht/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
